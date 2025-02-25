@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTYB.Views.ResetPinPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="background.png"
+               Aspect="AspectFill"
+               Opacity="1"/>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" 
+                               Padding="30,0"
+                               VerticalOptions="Center">
+
+                <!-- Title -->
+                <Label Text="Resetar PIN"
+                       FontFamily="MontserratBold"
+                       SemanticProperties.HeadingLevel="Level1"
+                       FontSize="25"
+                       HorizontalTextAlignment="Center"
+                       TextColor="White">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                               Offset="2,2"
+                               Radius="4"
+                               Opacity="0.5"/>
+                    </Label.Shadow>
+                </Label>
+
+                <!-- New PIN Display -->
+                <Frame BackgroundColor="White"
+                       Opacity="0.9"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="15"
+                       BorderColor="Transparent">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="O teu novo PIN:"
+                               FontFamily="MontserratRegular"
+                               TextColor="Black"/>
+                        <Label x:Name="NewPinLabel"
+                               Text="----"
+                               FontFamily="MontserratBold"
+                               FontSize="24"
+                               HorizontalOptions="Center"
+                               TextColor="Black"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Confirm PIN Entry -->
+                <Frame BackgroundColor="White"
+                       Opacity="0.9"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0"
+                       BorderColor="Transparent">
+                    <VerticalStackLayout Padding="15">
+                        <Label Text="Confirma o teu novo PIN:"
+                               FontFamily="MontserratRegular"
+                               TextColor="Black"
+                               Margin="0,0,0,10"/>
+                        <Entry x:Name="ConfirmPinEntry"
+                               IsPassword="True"
+                               MaxLength="4"
+                               Keyboard="Numeric"
+                               TextColor="Black"
+                               PlaceholderColor="Gray"
+                               FontFamily="MontserratRegular"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Buttons -->
+                <HorizontalStackLayout Spacing="20"
+                                     HorizontalOptions="Center">
+                    <Button Text="Submit"
+                            x:Name="SubmitButton"
+                            Clicked="OnSubmitClicked"
+                            WidthRequest="120"
+                            HeightRequest="50"
+                            CornerRadius="25"
+                            FontFamily="MontserratBold"
+                            BackgroundColor="DimGray"
+                            TextColor="White"/>
+
+                    <Button Text="Cancel"
+                            x:Name="CancelButton"
+                            Clicked="OnCancelClicked"
+                            WidthRequest="120"
+                            HeightRequest="50"
+                            CornerRadius="25"
+                            FontFamily="MontserratBold"
+                            BackgroundColor="Gray"
+                            TextColor="White"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

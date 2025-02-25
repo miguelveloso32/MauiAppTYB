@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTYB.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <!-- Background Image -->
+        <Image Source="background.png"
+               Aspect="AspectFill"
+               Opacity="1"/>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" 
+                               Padding="30,0"
+                               VerticalOptions="Center">
+
+                <!-- Logo Container -->
+                <Frame BackgroundColor="Transparent"
+                       HasShadow="False"
+                       Padding="15"
+                       Margin="0,20"
+                       HorizontalOptions="Center"
+                       BorderColor="Transparent">
+                    <Image Source="logo.png"
+                           HeightRequest="200"
+                           Aspect="AspectFit"/>
+                </Frame>
+
+                <!-- Welcome Text -->
+                <Label Text="Bem Vindo!"
+                       FontFamily="MontserratBold"
+                       SemanticProperties.HeadingLevel="Level1"
+                       FontSize="25"
+                       HorizontalTextAlignment="Center"
+                       TextColor="White">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                               Offset="2,2"
+                               Radius="4"
+                               Opacity="0.5"/>
+                    </Label.Shadow>
+                </Label>
+
+                <!-- Username Entry -->
+                <Frame BackgroundColor="White"
+                       Opacity="0.9"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0"
+                       BorderColor="Transparent">
+                    <Entry x:Name="UsernameEntry"
+                           Placeholder="Username"
+                           Text="{Binding Username}"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"
+                           FontFamily="MontserratRegular"
+                           Margin="15,0"/>
+                </Frame>
+
+                <!-- PIN Entry -->
+                <Frame BackgroundColor="White"
+                       Opacity="0.9"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       Padding="0"
+                       BorderColor="Transparent">
+                    <Entry x:Name="PinEntry"
+                           Placeholder="PIN"
+                           Text="{Binding Pin}"
+                           IsPassword="True"
+                           MaxLength="4"
+                           Keyboard="Numeric"
+                           TextColor="Black"
+                           PlaceholderColor="Gray"
+                           FontFamily="MontserratRegular"
+                           Margin="15,0"/>
+                </Frame>
+
+                <!-- Login Button -->
+                <Button x:Name="LoginButton"
+                        Text="LOGIN"
+                        SemanticProperties.Hint="Logs in to the application"
+                        Command="{Binding LoginCommand}"
+                        HorizontalOptions="Center"
+                        WidthRequest="200"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        FontFamily="MontserratBold"
+                        BackgroundColor="DimGray"
+                        TextColor="White">
+                    <Button.Shadow>
+                        <Shadow Brush="#40000000"
+                               Offset="0,4"
+                               Radius="4"/>
+                    </Button.Shadow>
+                </Button>
+
+                <!-- Forgot PIN Link -->
+                <Label Text="Esqueci-me do PIN"
+                       TextColor="White"
+                       FontFamily="MontserratRegular"
+                       FontSize="14"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ForgotPinTapped"
+                                             Tapped="OnForgotPinTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
