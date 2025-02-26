@@ -12,7 +12,7 @@
         <ShellContent
             Title="Login"
             ContentTemplate="{DataTemplate views:LoginPage}"
-            Route="login" />
+            Route="LoginPage" />
     </TabBar>
 
 </Shell>
