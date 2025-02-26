@@ -33,7 +33,14 @@ public partial class LoginPage : ContentPage
         // bool isAuthenticated = await AuthenticationService.ValidateCredentials(Username, Pin);
 
         // Temporary success message - replace with actual authentication
-        await DisplayAlert("Successo", "Login feito com successo!", "OK");
+        if (Username.ToLower() == "storemanager" && Pin == "1234")
+        {
+            await Shell.Current.GoToAsync("//UserInfoPage");
+        }
+        else
+        {
+            await DisplayAlert("Erro", "Credenciais inválidas", "OK");
+        }
     }
 
     private async void OnForgotPinTapped(object sender, EventArgs e)

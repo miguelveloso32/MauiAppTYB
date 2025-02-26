@@ -3,11 +3,35 @@
     x:Class="MauiAppTYB.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiAppTYB"
     xmlns:views="clr-namespace:MauiAppTYB.Views"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MauiAppTYB">
+    FlyoutBehavior="Flyout">
 
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#f4f4f4" Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="logoempresa.png"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <VerticalStackLayout Grid.Row="1" Spacing="5">
+                <Label Text="Store Manager"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!-- Menu Items -->
+    <FlyoutItem Title="Informação do Usuário">
+        <ShellContent ContentTemplate="{DataTemplate views:UserInfoPage}" />
+    </FlyoutItem>
+    
     <TabBar>
         <ShellContent
             Title="Login"

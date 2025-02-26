@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTYB.Views.FlyoutMenuPage"
+             Title="Menu">
+    <VerticalStackLayout Padding="0">
+        <!-- Logo e Informações do Usuário -->
+        <Grid BackgroundColor="#f4f4f4" Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Source="logoempresa.png"
+                   HeightRequest="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <VerticalStackLayout Grid.Row="1" Spacing="5">
+                <Label Text="Store Manager"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Menu Items -->
+        <ListView x:Name="listView"
+                  ItemsSource="{Binding MenuItems}"
+                  SeparatorVisibility="None"
+                  BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="15,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding IconSource}"
+                                   HeightRequest="20"
+                                   WidthRequest="20"/>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Title}"
+                                   FontSize="14"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
