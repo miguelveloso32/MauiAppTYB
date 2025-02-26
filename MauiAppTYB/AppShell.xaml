@@ -6,8 +6,43 @@
     xmlns:views="clr-namespace:MauiAppTYB.Views"
     FlyoutBehavior="Flyout">
 
+    <!-- Definir LoginPage como página inicial -->
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginPage"
+        FlyoutItemIsVisible="False"/>
+
+    <!-- Menu Items (só visíveis após login) -->
+    <FlyoutItem Title="Informação do Usuário" Icon="user.png">
+        <ShellContent ContentTemplate="{DataTemplate views:UserInfoPage}" Route="UserInfoPage"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Lojas" Icon="store.png">
+        <ShellContent ContentTemplate="{DataTemplate views:StorePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Inspeção" Icon="inspection.png">
+        <ShellContent ContentTemplate="{DataTemplate views:InspectionPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Plano de Ação" Icon="action_plan.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ActionPlanPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Suporte" Icon="support.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SupportPage}" />
+    </FlyoutItem>
+
+
+
+
+    <MenuItem Text="Logout" 
+              IconImageSource="logout.png"
+              Command="{Binding LogoutCommand}"/>
+
     <Shell.FlyoutHeader>
-        <Grid BackgroundColor="#f4f4f4" Padding="20">
+        <Grid BackgroundColor="#97ddf8"  Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
@@ -20,23 +55,14 @@
 
             <VerticalStackLayout Grid.Row="1" Spacing="5">
                 <Label Text="Store Manager"
-                       FontSize="18"
+                       FontFamily="MontserratBold"
+                       FontSize="22"
                        FontAttributes="Bold"
+                       TextColor="White"
                        HorizontalOptions="Center"/>
             </VerticalStackLayout>
         </Grid>
     </Shell.FlyoutHeader>
-
-    <!-- Menu Items -->
-    <FlyoutItem Title="Informação do Usuário">
-        <ShellContent ContentTemplate="{DataTemplate views:UserInfoPage}" />
-    </FlyoutItem>
-    
-    <TabBar>
-        <ShellContent
-            Title="Login"
-            ContentTemplate="{DataTemplate views:LoginPage}"
-            Route="LoginPage" />
-    </TabBar>
-
 </Shell>
+    
+    

@@ -28,13 +28,15 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        // TODO: Add your authentication logic here
-        // For example:
-        // bool isAuthenticated = await AuthenticationService.ValidateCredentials(Username, Pin);
-
-        // Temporary success message - replace with actual authentication
+        // Verificar as credenciais do Store Manager
         if (Username.ToLower() == "storemanager" && Pin == "1234")
         {
+            // Habilita o menu flyout após login bem-sucedido
+            if (Shell.Current is AppShell appShell)
+            {
+                appShell.EnableFlyout();
+            }
+
             await Shell.Current.GoToAsync("//UserInfoPage");
         }
         else

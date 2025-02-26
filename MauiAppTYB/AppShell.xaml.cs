@@ -12,6 +12,10 @@ namespace MauiAppTYB
             InitializeComponent();
             RegisterRoutes();
 
+
+            // Em vez de usar Shell.Current, vamos definir diretamente no shell atual
+            this.FlyoutBehavior = FlyoutBehavior.Disabled;
+
             LogoutCommand = new Command(async () => await OnLogoutClicked());
             BindingContext = this;
         }
@@ -22,8 +26,18 @@ namespace MauiAppTYB
             bool answer = await DisplayAlert("Logout", "Tem certeza que deseja sair?", "Sim", "Não");
             if (answer)
             {
+                // Aqui podemos usar this.FlyoutBehavior também
+                this.FlyoutBehavior = FlyoutBehavior.Disabled;
                 await Shell.Current.GoToAsync("//LoginPage");
             }
+        }
+
+
+
+        // Método público para habilitar o menu após login bem-sucedido
+        public void EnableFlyout()
+        {
+            this.FlyoutBehavior = FlyoutBehavior.Flyout;
         }
 
 
@@ -35,6 +49,9 @@ namespace MauiAppTYB
             Routing.RegisterRoute(nameof(ResetPinPage), typeof(ResetPinPage));
             Routing.RegisterRoute(nameof(FlyoutMenuPage), typeof(FlyoutMenuPage));
             Routing.RegisterRoute(nameof(UserInfoPage), typeof(UserInfoPage));
+            Routing.RegisterRoute(nameof(StorePage), typeof(StorePage));
+            Routing.RegisterRoute(nameof(ActionPlanPage), typeof(ActionPlanPage));
+            Routing.RegisterRoute(nameof(SupportPage), typeof(SupportPage));  
         }
     }
 }

@@ -18,9 +18,19 @@
 
             <VerticalStackLayout Grid.Row="1" Spacing="5">
                 <Label Text="Store Manager"
+                       FontFamily="MontserratBold"
                        FontSize="18"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.5"/>
+                    </Label.Shadow>
+
+                </Label>
+                       
+                
             </VerticalStackLayout>
         </Grid>
 
