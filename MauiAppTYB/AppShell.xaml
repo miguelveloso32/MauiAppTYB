@@ -22,16 +22,16 @@
         <ShellContent ContentTemplate="{DataTemplate views:StorePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Inspeção" Icon="inspection.png">
-        <ShellContent ContentTemplate="{DataTemplate views:InspectionPage}" />
-    </FlyoutItem>
-
     <FlyoutItem Title="Plano de Ação" Icon="action_plan.png">
         <ShellContent ContentTemplate="{DataTemplate views:ActionPlanPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Suporte" Icon="support.png">
         <ShellContent ContentTemplate="{DataTemplate views:SupportPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Redefinir Password" Icon="key.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ResetPinPage}" Route="ResetPinPage"/>
     </FlyoutItem>
 
 
@@ -57,9 +57,14 @@
                 <Label Text="Store Manager"
                        FontFamily="MontserratBold"
                        FontSize="22"
-                       FontAttributes="Bold"
                        TextColor="White"
                        HorizontalOptions="Center"/>
+                <Label
+                    Text="Pedro Cunha"
+                       FontSize="14"
+                       TextColor="Gray"
+                       HorizontalOptions="Center"/> 
+                
             </VerticalStackLayout>
         </Grid>
     </Shell.FlyoutHeader>
