@@ -6,6 +6,8 @@ namespace MauiAppTYB
     {
 
         public ICommand LogoutCommand { get; }
+        public string UserRole { get; private set; }
+        public string UserDisplayName { get; private set; }
 
         public AppShell()
         {
@@ -35,10 +37,26 @@ namespace MauiAppTYB
 
 
         // Método público para habilitar o menu após login bem-sucedido
-        public void EnableFlyout()
+        public void EnableFlyout(string userRole, string displayName)
         {
+            UserRole = userRole;
+            UserDisplayName = displayName;
+            OnPropertyChanged(nameof(UserRole));
+            OnPropertyChanged(nameof(UserDisplayName));                      
+
+            // Configura a visibilidade das páginas baseado no papel
+            foreach (var item in Items)
+            {
+                if (item is FlyoutItem flyoutItem && flyoutItem.Title == "Inspeção")
+                {
+                    flyoutItem.IsVisible = userRole == "Assistant" || userRole == "Inspector";
+                }
+            }
+
             this.FlyoutBehavior = FlyoutBehavior.Flyout;
         }
+
+
 
 
 
@@ -51,7 +69,8 @@ namespace MauiAppTYB
             Routing.RegisterRoute(nameof(UserInfoPage), typeof(UserInfoPage));
             Routing.RegisterRoute(nameof(StorePage), typeof(StorePage));
             Routing.RegisterRoute(nameof(ActionPlanPage), typeof(ActionPlanPage));
-            Routing.RegisterRoute(nameof(SupportPage), typeof(SupportPage));  
+            Routing.RegisterRoute(nameof(SupportPage), typeof(SupportPage));
+            Routing.RegisterRoute(nameof(InspectionPage), typeof(InspectionPage));
         }
     }
 }

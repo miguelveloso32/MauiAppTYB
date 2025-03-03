@@ -28,15 +28,29 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        // Verificar as credenciais do Store Manager
+        // Verifica as credenciais baseado no tipo de usuário
         if (Username.ToLower() == "storemanager" && Pin == "1234")
         {
-            // Habilita o menu flyout após login bem-sucedido
             if (Shell.Current is AppShell appShell)
             {
-                appShell.EnableFlyout();
+                appShell.EnableFlyout("Store Manager", "Pedro Cunha");
             }
-
+            await Shell.Current.GoToAsync("//UserInfoPage");
+        }
+        else if (Username.ToLower() == "assistant" && Pin == "1235")
+        {
+            if (Shell.Current is AppShell appShell)
+            {
+                appShell.EnableFlyout("Assistant", "Ana Pinto");
+            }
+            await Shell.Current.GoToAsync("//UserInfoPage");
+        }
+        else if (Username.ToLower() == "inspector" && Pin == "1236")
+        {
+            if (Shell.Current is AppShell appShell)
+            {
+                appShell.EnableFlyout("Inspector", "Miguel Veloso");
+            }
             await Shell.Current.GoToAsync("//UserInfoPage");
         }
         else

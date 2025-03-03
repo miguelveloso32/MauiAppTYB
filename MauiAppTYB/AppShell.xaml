@@ -22,6 +22,12 @@
         <ShellContent ContentTemplate="{DataTemplate views:StorePage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Inspeção" 
+                Icon="inspection.png"
+                x:Name="InspectionMenuItem">
+        <ShellContent ContentTemplate="{DataTemplate views:InspectionPage}" Route="InspectionPage"/>
+    </FlyoutItem>
+    
     <FlyoutItem Title="Plano de Ação" Icon="action_plan.png">
         <ShellContent ContentTemplate="{DataTemplate views:ActionPlanPage}" />
     </FlyoutItem>
@@ -54,14 +60,14 @@
                    VerticalOptions="Center"/>
 
             <VerticalStackLayout Grid.Row="1" Spacing="5">
-                <Label Text="Store Manager"
+                <Label Text="{Binding UserRole}"
                        FontFamily="MontserratBold"
                        FontSize="22"
                        TextColor="White"
                        HorizontalOptions="Center"/>
                 <Label
-                    Text="Pedro Cunha"
-                       FontSize="14"
+                    Text="{Binding UserDisplayName}"
+                       FontSize="14"    
                        TextColor="Gray"
                        HorizontalOptions="Center"/> 
                 
