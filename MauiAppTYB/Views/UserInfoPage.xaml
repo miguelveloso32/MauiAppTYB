@@ -3,10 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppTYB.Views.UserInfoPage"
              Title="UserInfoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label Text="Informação do Usuário"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Margin="0,20,0,20"/>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="User Nome: " FontAttributes="Bold"/>
+                <Label Text="{Binding UserName}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Email: " FontAttributes="Bold"/>
+                <Label Text="{Binding Email}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="First Name: " FontAttributes="Bold"/>
+                <Label Text="{Binding FirstName}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Last Name: " FontAttributes="Bold"/>
+                <Label Text="{Binding LastName}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Country: " FontAttributes="Bold"/>
+                <Label Text="{Binding Country}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="City: " FontAttributes="Bold"/>
+                <Label Text="{Binding City}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Tenant: " FontAttributes="Bold"/>
+                <Label Text="{Binding Tenant}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Store Tenant: " FontAttributes="Bold"/>
+                <Label Text="{Binding StoreTenant}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Position: " FontAttributes="Bold"/>
+                <Label Text="{Binding Position}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Departement: " FontAttributes="Bold"/>
+                <Label Text="{Binding Departement}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Phone Number: " FontAttributes="Bold"/>
+                <Label Text="{Binding PhoneNumber}" TextColor="Gray"/>
+            </Frame>
+
+            <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="0,0,0,10">
+                <Label Text="Role: " FontAttributes="Bold"/>
+                <Label Text="{Binding Role}" TextColor="Gray"/>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
